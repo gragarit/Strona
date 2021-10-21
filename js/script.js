@@ -7,10 +7,24 @@ const section = document.querySelector("section");
 
 let header_height = header.offsetHeight;
 let section_height = section.offsetHeight;
+
+let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+let searchBtn = document.querySelector(".bx-search");
 let sidebar = document.querySelector(".sidebar");
 let closeBtn = document.querySelector("#btn");
 let searchBtn = document.querySelector(".bx-search");
 
+closeBtn.addEventListener("click", () =>
+{
+  sidebar.classList.toggle("open");
+  menuBtnChange();
+});
+
+searchBtn.addEventListener("click", () =>
+{
+  menuBtnChange();
+});
 
 window.addEventListener('scroll',  ( ) => {
     let scroll = window.pageYOffset;
@@ -26,14 +40,3 @@ window.addEventListener('scroll',  ( ) => {
         
         content.style.transform = `translateY(${scroll  (section_height + sectionY.top) * 50 - 50}px)`;
 })
-
-closeBtn.addEventListener("click", () =>
-{
-  sidebar.classList.toggle("open");
-  menuBtnChange();
-});
-
-searchBtn.addEventListener("click", () =>
-{
-  menuBtnChange();
-});
